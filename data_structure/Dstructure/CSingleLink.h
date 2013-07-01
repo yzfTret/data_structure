@@ -2,12 +2,11 @@
 
  struct Node
  {
- 	Node();
-	Node(int e,Node*next)
- 	{
- 		element = e;
- 		link = next;
- 	}
+// 	Node(int e,Node*next)
+//  	{
+//  		element = e;
+//  		link = next;
+//  	}
  
  	int element;
  	Node* link;
@@ -21,9 +20,11 @@ public:
 
 public:
 	void printLink();
+	void createLink(const Node &node);
 
 private:
 	Node* m_pHead;
+	Node* m_pNext;
 	
 	int   m_linkSize;
 };
