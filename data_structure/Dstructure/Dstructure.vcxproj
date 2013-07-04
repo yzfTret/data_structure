@@ -75,11 +75,13 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CDoubleLink.h" />
     <ClInclude Include="CSingleLink.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="CDoubleLink.cpp" />
     <ClCompile Include="CSingleLink.cpp" />
     <ClCompile Include="Dstructure.cpp" />
     <ClCompile Include="stdafx.cpp">

@@ -21,6 +21,7 @@ public:
 public:
 	void printLink();
 	void createLink(const Node &node);
+	void clearLink();
 
 private:
 	Node* m_pHead;
