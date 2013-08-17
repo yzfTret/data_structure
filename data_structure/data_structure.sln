@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Dstructure", "Dstructure\Ds
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DesignPatten", "DesignPatten\DesignPatten.vcxproj", "{F792C044-5A5E-44D3-94A6-1433E2BD1BBB}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSort", "CSort\CSort.vcxproj", "{A8255749-3605-4948-8DA7-001A36CB8F89}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -25,6 +27,10 @@ Global
 		{F792C044-5A5E-44D3-94A6-1433E2BD1BBB}.Debug|Win32.Build.0 = Debug|Win32
 		{F792C044-5A5E-44D3-94A6-1433E2BD1BBB}.Release|Win32.ActiveCfg = Release|Win32
 		{F792C044-5A5E-44D3-94A6-1433E2BD1BBB}.Release|Win32.Build.0 = Release|Win32
+		{A8255749-3605-4948-8DA7-001A36CB8F89}.Debug|Win32.ActiveCfg = Debug|Win32
+		{A8255749-3605-4948-8DA7-001A36CB8F89}.Debug|Win32.Build.0 = Debug|Win32
+		{A8255749-3605-4948-8DA7-001A36CB8F89}.Release|Win32.ActiveCfg = Release|Win32
+		{A8255749-3605-4948-8DA7-001A36CB8F89}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
