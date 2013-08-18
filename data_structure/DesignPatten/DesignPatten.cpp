@@ -24,6 +24,23 @@ private:
 
 A*A::m_pText = new A();
 
+class B
+{
+public:
+	B::B();
+	B::~B();
+};
+
+B::B()
+{
+
+}
+
+B::~B()
+{
+
+}
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	//µ¥ÀýÄ£Ê½
@@ -35,6 +52,9 @@ int _tmain(int argc, _TCHAR* argv[])
 	{
 		int a = 12;
 	}
+
+	B bt;
+	int c = sizeof(bt);
 	return 0;
 }
 

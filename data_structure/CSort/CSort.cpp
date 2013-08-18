@@ -6,20 +6,36 @@
 #define  SORT_NUM 5
 
 void bubbleSort(int (&num)[SORT_NUM]);
+void  insertSort(int (&num)[SORT_NUM]);
+void shellSort(int (&num)[SORT_NUM]);
+
 int _tmain(int argc, _TCHAR* argv[])
 {
-	int a = 0;
-	for (int i = 1; i <= 65;++i)
+	//maopao  text 
+	int text[SORT_NUM] = {2,1,5,4,3};
+	bubbleSort(text);
+
+
+	//insert text
+	int insertText[SORT_NUM] = {2,1,5,4,3};
+	insertSort(insertText);
+
+
+	//shell text
+	int shellText[SORT_NUM] = {2,1,5,4,3};
+	insertSort(shellText);
+
+	for (int i = 0;i < SORT_NUM;++i)
 	{
-		a += i*i*i*25;
+		printf("%d\n",text[i]);
 	}
 
-	int b = a;
+
 	return 0;
 }
 
 //Ã°ÅÝÅÅÐò. 
-void maopao(int (&num)[SORT_NUM])
+void bubbleSort(int (&num)[SORT_NUM])
 {
     for (int i = 0; i < SORT_NUM -1;++i)
     {
@@ -34,4 +50,41 @@ void maopao(int (&num)[SORT_NUM])
 		}
     }
 }
+
+//²åÈëÅÅÐò  
+void  insertSort(int (&num)[SORT_NUM])
+{
+	for (int i = 1;i < SORT_NUM;++i)
+	{
+
+		int j = i;
+		while(j > 0 && num[j] > num[i])
+		{
+			num[j] = num[j -1];
+			j--;
+		}
+
+		num[j] = num[i];
+	}
+}
+
+//Ï£¶ûÅÅÐò
+void shellSort(int (&num)[SORT_NUM])
+{
+	for (int d = SORT_NUM/2;d >= 1;d = d/2)
+	{
+		for (int i = d;i < SORT_NUM;++i)
+		{
+			int temp = num[i];
+			int j = i - d;
+			for (;j >= 0 && num[j] > temp;j = j-d)
+			{
+				num[j+d] = num[j];
+			}
+			num[j+d] = temp;
+		}
+	}
+}
+
+
 
