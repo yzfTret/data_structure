@@ -8,6 +8,10 @@
 void bubbleSort(int (&num)[SORT_NUM]);
 void  insertSort(int (&num)[SORT_NUM]);
 void shellSort(int (&num)[SORT_NUM]);
+void selectSort(int (&num)[SORT_NUM]);
+
+void mergeSort(int (&num)[SORT_NUM],int low,int high);
+void merge(int (&num)[SORT_NUM],int low,int mid,int high);
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -25,9 +29,18 @@ int _tmain(int argc, _TCHAR* argv[])
 	int shellText[SORT_NUM] = {2,1,5,4,3};
 	insertSort(shellText);
 
+	//select text
+	int selectText[SORT_NUM] = {2,1,5,4,3};
+	selectSort(selectText);
+
+
+	//merge text
+	int mergeText[SORT_NUM] = {2,1,5,4,3};
+	mergeSort(mergeText,0,4);
+
 	for (int i = 0;i < SORT_NUM;++i)
 	{
-		printf("%d\n",text[i]);
+		printf("%d\n",mergeText[i]);
 	}
 
 
@@ -85,6 +98,79 @@ void shellSort(int (&num)[SORT_NUM])
 		}
 	}
 }
+
+//选择排序  不稳定的
+void selectSort(int (&num)[SORT_NUM])
+{
+	for (int j = 0;j < SORT_NUM-1;++j)
+	{
+		int k = j;
+		for (int i = j+1;i < SORT_NUM;++i)
+		{
+			if (num[k] > num[i])
+			{
+				k = i;
+			}
+		}
+
+		if (j != k)
+		{
+			int temp = num[j];
+			num[j] = num[k];
+			num[k] = temp;
+		}		
+	}	
+}
+
+//归并操作 稳定的
+void mergeSort(int (&num)[SORT_NUM],int low,int high)
+{
+	if (low < high)
+	{
+		int mid = (low +high)/2;
+		mergeSort(num,0,mid);
+		mergeSort(num,mid+1,high);
+		merge(num,0,mid,high);
+	}
+}
+
+void merge(int (&num)[SORT_NUM],int low,int mid,int high)
+{
+	int num2[SORT_NUM] = {};
+
+	int i = low;
+	int j=  mid+1;
+	int k = low;
+
+
+	while(i <= mid && j <= high)
+	{
+		if (num[j] > num[i])
+		{
+			num2[k++] = num[i++];
+		}
+		else
+		{
+			num2[k++] = num[j++];
+		}
+	}
+
+	while(i <= mid)
+	{
+		num2[k++] = num[i++];
+	}
+
+	while(j <= high)
+	{
+		num2[k++] = num[j++];
+	}
+
+	for (i = low; i <= high;i++)
+	{
+		num[i] = num2[i];
+	}
+}
+
 
 
 
