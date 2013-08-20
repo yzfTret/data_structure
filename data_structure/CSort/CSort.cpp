@@ -13,6 +13,8 @@ void selectSort(int (&num)[SORT_NUM]);
 void mergeSort(int (&num)[SORT_NUM],int low,int high);
 void merge(int (&num)[SORT_NUM],int low,int mid,int high);
 
+void quickSort(int (&num)[SORT_NUM],int low,int high);//kuai s
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	//maopao  text 
@@ -38,9 +40,13 @@ int _tmain(int argc, _TCHAR* argv[])
 	int mergeText[SORT_NUM] = {2,1,5,4,3};
 	mergeSort(mergeText,0,4);
 
+	//quickSort
+	int quickText[SORT_NUM] = {2,1,5,4,3};
+	quickSort(quickText,0,4);
+
 	for (int i = 0;i < SORT_NUM;++i)
 	{
-		printf("%d\n",mergeText[i]);
+		printf("%d\n",quickText[i]);
 	}
 
 
@@ -168,6 +174,51 @@ void merge(int (&num)[SORT_NUM],int low,int mid,int high)
 	for (i = low; i <= high;i++)
 	{
 		num[i] = num2[i];
+	}
+}
+
+void quickSort(int (&num)[SORT_NUM],int low,int high)
+{
+	int mid = (low+high)/2;
+	int key = num[mid];
+
+
+	for(int i = low,j = high;i <j;)
+	{
+		while(!(key < num[i] || i > mid))
+		{
+			i++;
+		}
+
+		if (i-1 < mid)
+		{
+			num[mid] = num[i];
+			mid = i;
+		}
+
+		while(j > 0 && !(key > num[j] || j > mid))
+		{
+			j--;
+		}
+
+		if (j > mid)
+		{
+			num[mid] = num[j];
+			mid = j;
+		}
+
+		num[mid] = key;
+
+		if (mid - low > 1)
+		{
+			quickSort(num,low,mid-1);
+		}
+
+		if (high - mid > 1)
+		{
+			quickSort(num,mid+1,high);
+		}
+
 	}
 }
 

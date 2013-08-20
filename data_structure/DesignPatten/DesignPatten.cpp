@@ -2,6 +2,7 @@
 //
 
 #include "stdafx.h"
+#include "CIterator.h"
 
 class A
 {
@@ -41,6 +42,9 @@ B::~B()
 
 }
 
+//观察者模式
+
+
 int _tmain(int argc, _TCHAR* argv[])
 {
 	//单例模式
@@ -53,8 +57,20 @@ int _tmain(int argc, _TCHAR* argv[])
 		int a = 12;
 	}
 
-	B bt;
-	int c = sizeof(bt);
+    ConcreteObjects*pObjects = new ConcreteObjects();
+	pObjects->addObjects(1);
+	pObjects->addObjects(2);
+	pObjects->addObjects(3);
+
+	ConcreteIterator*pIterator = new ConcreteIterator(pObjects);
+	int begin = pIterator->bengin();
+
+	while(!pIterator->isDone())
+	{
+		pIterator->next();
+	}
+	
+
 	return 0;
 }
 
