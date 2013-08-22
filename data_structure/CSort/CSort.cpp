@@ -190,13 +190,13 @@ void quickSort(int (&num)[SORT_NUM],int low,int high)
 			i++;
 		}
 
-		if (i-1 < mid)
+		if (i < mid)
 		{
 			num[mid] = num[i];
 			mid = i;
 		}
 
-		while(j > 0 && !(key > num[j] || j > mid))
+		while(j > 0 && !(key > num[j] && j > mid))
 		{
 			j--;
 		}
