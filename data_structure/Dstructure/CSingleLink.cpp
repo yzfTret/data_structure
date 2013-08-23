@@ -24,7 +24,7 @@ void CSingleLink::printLink()
 		Node*pHead = m_pHead;
 		while(pHead != NULL)
 		{
-			printf("list is %d\n",m_pHead->element);
+			printf("list is %d\n",pHead->element);
 			pHead = pHead->link;
 		}
 	}
@@ -69,6 +69,23 @@ void CSingleLink::clearLink()
 			pHead = pNext;
 		}
 	}
+}
+
+void CSingleLink::reverse()
+{
+	Node*p = m_pHead;
+	Node*pNext = m_pHead->link;
+	Node*pK = NULL;
+	while(pNext != NULL)
+	{
+		pK = pNext->link;
+		pNext->link = p;
+		p = pNext;
+		pNext = pK;
+	}
+
+	m_pHead->link = NULL;
+	m_pHead = p;
 }
 
 

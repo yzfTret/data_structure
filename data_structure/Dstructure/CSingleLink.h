@@ -23,6 +23,8 @@ public:
 	void createLink(const Node &node);
 	void clearLink();
 
+	void reverse();
+
 private:
 	Node* m_pHead;
 	Node* m_pNext;
